@@ -1,6 +1,5 @@
 <script setup>
 import { ref, computed, onUnmounted } from 'vue'
-import { Play, Pause, SkipBack, SkipForward, ChevronsLeft, ChevronsRight, RotateCcw } from 'lucide-vue-next'
 
 const sekunden = ref(0)
 const laeuft = ref(false)
@@ -52,33 +51,20 @@ onUnmounted(() => {
     </div>
 
     <div class="flex items-center gap-2">
-      <button @click="springen(-10)" class="flex items-center gap-1.5 bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50" title="-10s">
-        <ChevronsLeft :size="14" :stroke-width="1.5" /> 10s
-      </button>
-      <button @click="springen(-1)" class="flex items-center gap-1.5 bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50" title="-1s">
-        <SkipBack :size="14" :stroke-width="1.5" /> 1s
-      </button>
+      <button @click="springen(-10)" class="bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50">-10s</button>
+      <button @click="springen(-1)" class="bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50">-1s</button>
 
       <button
         @click="toggle"
-        class="flex items-center gap-1.5 bg-white/[0.08] hover:bg-white/[0.13] transition-colors rounded-lg px-5 py-2 text-sm text-white/70"
+        class="bg-white/[0.08] hover:bg-white/[0.13] transition-colors rounded-lg px-5 py-2 text-sm text-white/70"
       >
-        <Play v-if="!laeuft" :size="16" :stroke-width="1.5" />
-        <Pause v-else :size="16" :stroke-width="1.5" />
         {{ laeuft ? 'Stop' : 'Start' }}
       </button>
 
-      <button @click="springen(1)" class="flex items-center gap-1.5 bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50" title="+1s">
-        1s <SkipForward :size="14" :stroke-width="1.5" />
-      </button>
-      <button @click="springen(10)" class="flex items-center gap-1.5 bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50" title="+10s">
-        10s <ChevronsRight :size="14" :stroke-width="1.5" />
-      </button>
+      <button @click="springen(1)" class="bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50">+1s</button>
+      <button @click="springen(10)" class="bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50">+10s</button>
     </div>
 
-    <button @click="reset" class="flex items-center gap-1.5 bg-white/[0.04] hover:bg-white/[0.08] transition-colors rounded-lg px-3 py-1.5 text-xs text-white/30">
-      <RotateCcw :size="12" :stroke-width="1.5" />
-      Reset
-    </button>
+    <button @click="reset" class="bg-white/[0.04] hover:bg-white/[0.08] transition-colors rounded-lg px-3 py-1.5 text-xs text-white/30">Reset</button>
   </div>
 </template>
