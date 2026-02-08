@@ -11,8 +11,6 @@ const ereignisse = ref([
   { id: 2, minute: 34, typ: 'gelb', spieler: 'Appelkamp', team: 'gast' },
   { id: 3, minute: 51, typ: 'tor', spieler: 'Tabakovic', team: 'heim' },
   { id: 4, minute: 67, typ: 'wechsel', spieler: 'Reyna \u2192 Kenny', team: 'heim' },
-  { id: 5, minute: 73, typ: 'tor', spieler: 'Hennings', team: 'gast' },
-  { id: 6, minute: 88, typ: 'rot', spieler: 'Iyoha', team: 'gast' },
 ])
 </script>
 
