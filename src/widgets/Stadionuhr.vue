@@ -51,31 +51,32 @@ onUnmounted(() => {
       {{ anzeige }}
     </div>
 
-    <div class="flex items-center gap-1">
-      <button @click="springen(-10)" class="text-white/20 hover:text-white/45 transition-colors p-2" title="-10s">
-        <ChevronsLeft :size="20" :stroke-width="1.5" />
+    <div class="flex items-center gap-2">
+      <button @click="springen(-10)" class="flex items-center gap-1.5 bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50" title="-10s">
+        <ChevronsLeft :size="14" :stroke-width="1.5" /> 10s
       </button>
-      <button @click="springen(-1)" class="text-white/20 hover:text-white/45 transition-colors p-2" title="-1s">
-        <SkipBack :size="18" :stroke-width="1.5" />
+      <button @click="springen(-1)" class="flex items-center gap-1.5 bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50" title="-1s">
+        <SkipBack :size="14" :stroke-width="1.5" /> 1s
       </button>
 
       <button
         @click="toggle"
-        class="mx-3 w-12 h-12 rounded-full flex items-center justify-center bg-white/[0.07] hover:bg-white/[0.12] transition-colors"
+        class="flex items-center gap-1.5 bg-white/[0.08] hover:bg-white/[0.13] transition-colors rounded-lg px-5 py-2 text-sm text-white/70"
       >
-        <Play v-if="!laeuft" :size="22" :stroke-width="1.5" class="ml-0.5" />
-        <Pause v-else :size="22" :stroke-width="1.5" />
+        <Play v-if="!laeuft" :size="16" :stroke-width="1.5" />
+        <Pause v-else :size="16" :stroke-width="1.5" />
+        {{ laeuft ? 'Stop' : 'Start' }}
       </button>
 
-      <button @click="springen(1)" class="text-white/20 hover:text-white/45 transition-colors p-2" title="+1s">
-        <SkipForward :size="18" :stroke-width="1.5" />
+      <button @click="springen(1)" class="flex items-center gap-1.5 bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50" title="+1s">
+        1s <SkipForward :size="14" :stroke-width="1.5" />
       </button>
-      <button @click="springen(10)" class="text-white/20 hover:text-white/45 transition-colors p-2" title="+10s">
-        <ChevronsRight :size="20" :stroke-width="1.5" />
+      <button @click="springen(10)" class="flex items-center gap-1.5 bg-white/[0.06] hover:bg-white/[0.1] transition-colors rounded-lg px-3 py-2 text-xs text-white/50" title="+10s">
+        10s <ChevronsRight :size="14" :stroke-width="1.5" />
       </button>
     </div>
 
-    <button @click="reset" class="flex items-center gap-1.5 text-white/20 hover:text-white/45 transition-colors text-xs tracking-wide uppercase">
+    <button @click="reset" class="flex items-center gap-1.5 bg-white/[0.04] hover:bg-white/[0.08] transition-colors rounded-lg px-3 py-1.5 text-xs text-white/30">
       <RotateCcw :size="12" :stroke-width="1.5" />
       Reset
     </button>
