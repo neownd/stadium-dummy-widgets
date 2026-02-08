@@ -23,7 +23,7 @@ const ereignisse = ref([
         <span class="text-sm font-medium text-white/80">{{ heim }}</span>
       </div>
 
-      <div class="flex items-baseline gap-3">
+      <div class="flex items-center gap-3">
         <span class="text-5xl font-bold tabular-nums">{{ toreHeim }}</span>
         <span class="text-2xl font-light text-white/30">:</span>
         <span class="text-5xl font-bold tabular-nums">{{ toreGast }}</span>
