@@ -50,9 +50,9 @@ onUnmounted(() => {
       {{ anzeige }}
     </div>
 
-    <div class="flex items-center gap-1.5">
-      <button @click="springen(-10)" class="bg-white/10 hover:bg-white/20 rounded px-3 py-1.5 text-xs">-10s</button>
-      <button @click="springen(-1)" class="bg-white/10 hover:bg-white/20 rounded px-3 py-1.5 text-xs">-1s</button>
+    <div class="flex items-center gap-3">
+      <button @click="springen(-10)" class="text-white/25 hover:text-white/50 text-lg" title="-10s">&#x23EA;</button>
+      <button @click="springen(-1)" class="text-white/25 hover:text-white/50 text-lg" title="-1s">&#x25C0;</button>
       <button
         @click="toggle"
         class="rounded px-5 py-1.5 text-xs font-semibold"
@@ -60,10 +60,10 @@ onUnmounted(() => {
       >
         {{ laeuft ? 'Stop' : 'Start' }}
       </button>
-      <button @click="springen(1)" class="bg-white/10 hover:bg-white/20 rounded px-3 py-1.5 text-xs">+1s</button>
-      <button @click="springen(10)" class="bg-white/10 hover:bg-white/20 rounded px-3 py-1.5 text-xs">+10s</button>
+      <button @click="springen(1)" class="text-white/25 hover:text-white/50 text-lg" title="+1s">&#x25B6;</button>
+      <button @click="springen(10)" class="text-white/25 hover:text-white/50 text-lg" title="+10s">&#x23E9;</button>
     </div>
 
-    <button @click="reset" class="text-white/40 hover:text-white/70 text-xs">Reset</button>
+    <button @click="reset" class="text-white/25 hover:text-white/50 text-xs">Reset</button>
   </div>
 </template>
