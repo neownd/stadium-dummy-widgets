@@ -7,12 +7,12 @@ const toreHeim = ref(2)
 const toreGast = ref(1)
 
 const ereignisse = ref([
-  { id: 1, minute: 12, typ: 'tor', spieler: 'Scherhant' },
-  { id: 2, minute: 34, typ: 'gelb', spieler: 'Appelkamp' },
-  { id: 3, minute: 51, typ: 'tor', spieler: 'Tabakovic' },
-  { id: 4, minute: 67, typ: 'wechsel', spieler: 'Reyna \u2192 Kenny' },
-  { id: 5, minute: 73, typ: 'tor', spieler: 'Hennings' },
-  { id: 6, minute: 88, typ: 'rot', spieler: 'Iyoha' },
+  { id: 1, minute: 12, typ: 'tor', spieler: 'Scherhant', team: 'heim' },
+  { id: 2, minute: 34, typ: 'gelb', spieler: 'Appelkamp', team: 'gast' },
+  { id: 3, minute: 51, typ: 'tor', spieler: 'Tabakovic', team: 'heim' },
+  { id: 4, minute: 67, typ: 'wechsel', spieler: 'Reyna \u2192 Kenny', team: 'heim' },
+  { id: 5, minute: 73, typ: 'tor', spieler: 'Hennings', team: 'gast' },
+  { id: 6, minute: 88, typ: 'rot', spieler: 'Iyoha', team: 'gast' },
 ])
 </script>
 
@@ -38,32 +38,34 @@ const ereignisse = ref([
     </div>
 
     <!-- Ereignisse -->
-    <div v-if="ereignisse.length" class="mt-5 border-t border-white/10 pt-3 space-y-1.5">
+    <div v-if="ereignisse.length" class="mt-5 space-y-px">
       <div
         v-for="e in ereignisse"
         :key="e.id"
-        class="flex items-center gap-3 text-[13px] text-white/70"
+        class="flex items-center bg-white/[0.03] hover:bg-white/[0.06] transition-colors rounded-lg px-4 py-2.5"
       >
-        <span class="tabular-nums w-8 text-right text-white/40 shrink-0">{{ e.minute }}'</span>
+        <!-- Minute -->
+        <span class="tabular-nums text-xs font-medium text-white/40 w-10 shrink-0">{{ e.minute }}'</span>
 
-        <!-- Tor -->
-        <svg v-if="e.typ === 'tor'" class="w-4 h-4 shrink-0 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 2 L14.5 8.5 L21 9.5 L16.5 14 L17.5 21 L12 17.5 L6.5 21 L7.5 14 L3 9.5 L9.5 8.5 Z" />
-        </svg>
+        <!-- Icon -->
+        <div class="w-8 shrink-0 flex justify-center">
+          <!-- Tor -->
+          <span v-if="e.typ === 'tor'" class="w-5 h-5 rounded-full border-2 border-white/50 flex items-center justify-center text-[9px] font-bold text-white/50">G</span>
+          <!-- Gelbe Karte -->
+          <span v-else-if="e.typ === 'gelb'" class="w-3.5 h-[18px] rounded-[2px] bg-yellow-400"></span>
+          <!-- Rote Karte -->
+          <span v-else-if="e.typ === 'rot'" class="w-3.5 h-[18px] rounded-[2px] bg-red-500"></span>
+          <!-- Auswechslung -->
+          <svg v-else-if="e.typ === 'wechsel'" class="w-4 h-4 text-emerald-400/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 15l4-4-4-4" /><path d="M19 9l-4 4 4 4" />
+          </svg>
+        </div>
 
-        <!-- Gelbe Karte -->
-        <span v-else-if="e.typ === 'gelb'" class="w-3 h-4 rounded-[2px] bg-yellow-400 shrink-0"></span>
+        <!-- Spieler -->
+        <span class="text-sm text-white/75 flex-1">{{ e.spieler }}</span>
 
-        <!-- Rote Karte -->
-        <span v-else-if="e.typ === 'rot'" class="w-3 h-4 rounded-[2px] bg-red-500 shrink-0"></span>
-
-        <!-- Auswechslung -->
-        <svg v-else-if="e.typ === 'wechsel'" class="w-4 h-4 shrink-0 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" />
-        </svg>
-
-        <span>{{ e.spieler }}</span>
+        <!-- Team-Indikator -->
+        <span class="text-[11px] text-white/30 uppercase tracking-wider">{{ e.team === 'heim' ? heim : gast }}</span>
       </div>
     </div>
   </div>
