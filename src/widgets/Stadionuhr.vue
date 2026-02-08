@@ -45,53 +45,25 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center text-white gap-8">
-    <!-- Zeitanzeige -->
-    <div class="text-8xl font-mono font-bold tabular-nums tracking-wider">
+  <div class="h-screen flex flex-col items-center justify-center text-white gap-4">
+    <div class="text-6xl font-mono font-bold tabular-nums tracking-wider">
       {{ anzeige }}
     </div>
 
-    <!-- Sprung-Buttons -->
-    <div class="flex items-center gap-2">
-      <button
-        @click="springen(-10)"
-        class="bg-white/10 hover:bg-white/20 rounded px-4 py-2 text-sm font-medium"
-      >
-        -10s
-      </button>
-      <button
-        @click="springen(-1)"
-        class="bg-white/10 hover:bg-white/20 rounded px-4 py-2 text-sm font-medium"
-      >
-        -1s
-      </button>
+    <div class="flex items-center gap-1.5">
+      <button @click="springen(-10)" class="bg-white/10 hover:bg-white/20 rounded px-3 py-1.5 text-xs">-10s</button>
+      <button @click="springen(-1)" class="bg-white/10 hover:bg-white/20 rounded px-3 py-1.5 text-xs">-1s</button>
       <button
         @click="toggle"
-        class="rounded px-6 py-2 text-sm font-semibold"
+        class="rounded px-5 py-1.5 text-xs font-semibold"
         :class="laeuft ? 'bg-red-500/80 hover:bg-red-500' : 'bg-green-500/80 hover:bg-green-500'"
       >
         {{ laeuft ? 'Stop' : 'Start' }}
       </button>
-      <button
-        @click="springen(1)"
-        class="bg-white/10 hover:bg-white/20 rounded px-4 py-2 text-sm font-medium"
-      >
-        +1s
-      </button>
-      <button
-        @click="springen(10)"
-        class="bg-white/10 hover:bg-white/20 rounded px-4 py-2 text-sm font-medium"
-      >
-        +10s
-      </button>
+      <button @click="springen(1)" class="bg-white/10 hover:bg-white/20 rounded px-3 py-1.5 text-xs">+1s</button>
+      <button @click="springen(10)" class="bg-white/10 hover:bg-white/20 rounded px-3 py-1.5 text-xs">+10s</button>
     </div>
 
-    <!-- Reset -->
-    <button
-      @click="reset"
-      class="text-white/40 hover:text-white/70 text-sm"
-    >
-      Reset
-    </button>
+    <button @click="reset" class="text-white/40 hover:text-white/70 text-xs">Reset</button>
   </div>
 </template>
