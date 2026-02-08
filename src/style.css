@@ -2,7 +2,7 @@
 
 :root {
   --base-600: #4a4548;
-  --base-900: #18181b;
+  --base-900: #1e1e22;
 }
 
 * {
@@ -11,7 +11,8 @@
 }
 
 body {
-  background-color: #18181b;
+  font-family: 'Inter', sans-serif;
+  background-color: #1e1e22;
   margin: 0;
   padding: 0;
 }
