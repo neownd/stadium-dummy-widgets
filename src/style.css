@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+:root {
+  --base-600: #4a4548;
+  --base-900: #1a1819;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--base-600) var(--base-900);
+}
+
 body {
   background-color: #181617;
   margin: 0;
